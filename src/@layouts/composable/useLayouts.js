@@ -57,7 +57,7 @@ export const useLayouts = () => {
 
   const appContentLayoutNav = computed({
     get() {
-      return config.app.contentLayoutNav.value
+      return "horizontal"
     },
     set(val) {
       config.app.contentLayoutNav.value = val
