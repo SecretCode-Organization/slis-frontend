@@ -74,10 +74,9 @@ const hideContent = () => {
 
 onMounted(updatePopper)
 
-const { isAppRtl, appContentWidth } = useLayouts()
+const { appContentWidth } = useLayouts()
 
 watch([
-  isAppRtl,
   appContentWidth,
 ], updatePopper)
 

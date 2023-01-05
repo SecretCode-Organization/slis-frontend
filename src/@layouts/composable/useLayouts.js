@@ -86,7 +86,7 @@ export const useLayouts = () => {
 
   const _layoutClasses = computed(() => (windowWidth, windowScrollY) => {
     const route = useRoute()
-    
+
     return [
       `layout-nav-type-${appContentLayoutNav.value}`,
       `layout-navbar-${navbarType.value}`,
@@ -107,10 +107,10 @@ export const useLayouts = () => {
   const switchToVerticalNavOnLtOverlayNavBreakpoint = windowWidth => {
     /*
           ℹ️ This is flag will hold nav type need to render when switching between lgAndUp from mdAndDown window width
-    
+
           Requirement: When we nav is set to `horizontal` and we hit the `mdAndDown` breakpoint nav type shall change to `vertical` nav
           Now if we go back to `lgAndUp` breakpoint from `mdAndDown` how we will know which was previous nav type in large device?
-    
+
           Let's assign value of `appContentLayoutNav` as default value of lgAndUpNav. Why 🤔?
             If template is viewed in lgAndUp
               We will assign `appContentLayoutNav` value to `lgAndUpNav` because at this point both constant is same
@@ -151,14 +151,14 @@ export const useLayouts = () => {
         - Collapsed
         - Isn't hovered by mouse
         - nav is not less than overlay breakpoint (hence, isn't overlay menu)
-  
+
       ℹ️ We are getting `isVerticalNavHovered` as param instead of via `inject` because
           we are using this in `VerticalNav.vue` component which provide it and I guess because
           same component is providing & injecting we are getting undefined error
     */
   const isVerticalNavMini = (windowWidth, isVerticalNavHovered = null) => {
     const isVerticalNavHoveredLocal = isVerticalNavHovered || inject(injectionKeyIsVerticalNavHovered) || ref(false)
-    
+
     return computed(() => isVerticalNavCollapsed.value && !isVerticalNavHoveredLocal.value && !isLessThanOverlayNavBreakpoint.value(unref(windowWidth)))
   }
 
@@ -170,19 +170,8 @@ export const useLayouts = () => {
         scope: 'global',
       }
     }
-    
-    return {}
-  })
 
-  const isAppRtl = computed({
-    get() {
-      return config.app.isRtl.value
-    },
-    set(value) {
-      config.app.isRtl.value = value
-      localStorage.setItem(`${config.app.title}-isRtl`, value.toString())
-      _setAppDir(value ? 'rtl' : 'ltr')
-    },
+    return {}
   })
 
   return {
@@ -198,7 +187,6 @@ export const useLayouts = () => {
     switchToVerticalNavOnLtOverlayNavBreakpoint,
     isVerticalNavMini,
     dynamicI18nProps,
-    isAppRtl,
     _setAppDir,
   }
 }

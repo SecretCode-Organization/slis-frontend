@@ -15,7 +15,7 @@ import {
 import { themeConfig } from '@themeConfig'
 
 const isNavDrawerOpen = ref(false)
-const { theme, skin, appRouteTransition, navbarType, footerType, isVerticalNavCollapsed, isVerticalNavSemiDark, appContentWidth, appContentLayoutNav, isAppRtl, isNavbarBlurEnabled, isLessThanOverlayNavBreakpoint } = useThemeConfig()
+const { theme, skin, appRouteTransition, navbarType, footerType, isVerticalNavCollapsed, isVerticalNavSemiDark, appContentWidth, appContentLayoutNav, isNavbarBlurEnabled, isLessThanOverlayNavBreakpoint } = useThemeConfig()
 
 // 👉 Primary Color
 const vuetifyTheme = useTheme()
@@ -47,7 +47,7 @@ const headerValues = computed(() => {
   const entries = Object.entries(NavbarType)
   if (appContentLayoutNav.value === AppContentLayoutNav.Horizontal)
     return entries.filter(([_, val]) => val !== NavbarType.Hidden)
-  
+
   return entries
 })
 </script>
@@ -298,23 +298,6 @@ const headerValues = computed(() => {
 
         <!-- SECTION MISC -->
         <CustomizerSection title="MISC">
-          <!-- 👉 RTL -->
-          <div class="d-flex align-center justify-space-between">
-            <VLabel
-              for="customizer-rtl"
-              class="text-high-emphasis"
-            >
-              RTL
-            </VLabel>
-            <div>
-              <VSwitch
-                id="customizer-rtl"
-                v-model="isAppRtl"
-                class="ms-2"
-              />
-            </div>
-          </div>
-
           <!-- 👉 Route Transition -->
           <div class="mt-6">
             <VRow>

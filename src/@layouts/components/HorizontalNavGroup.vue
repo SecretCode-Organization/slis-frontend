@@ -29,7 +29,7 @@ defineOptions({ name: 'HorizontalNavGroup' })
 
 const route = useRoute()
 const router = useRouter()
-const { dynamicI18nProps, isAppRtl } = useLayouts()
+const { dynamicI18nProps } = useLayouts()
 const isGroupActive = ref(false)
 
 watch(() => route.path, () => {
@@ -42,7 +42,6 @@ watch(() => route.path, () => {
 <template>
   <HorizontalNavPopper
     v-if="canViewNavMenuGroup(item)"
-    :is-rtl="isAppRtl"
     class="nav-group"
     tag="li"
     content-container-tag="ul"

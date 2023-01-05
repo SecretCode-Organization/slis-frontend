@@ -38,10 +38,10 @@ export const useThemeConfig = () => {
 
   /*
       ℹ️ Set current theme's surface color in localStorage
-  
+
       Why? Because when initial loader is shown (before vue is ready) we need to what's the current theme's surface color.
       We will use color stored in localStorage to set the initial loader's background color.
-  
+
       With this we will be able to show correct background color for the initial loader even before vue identify the current theme.
     */
   const syncInitialLoaderTheme = () => {
@@ -78,37 +78,8 @@ export const useThemeConfig = () => {
 
 
   // `@layouts` exports
-  const { navbarType, isNavbarBlurEnabled, footerType, isVerticalNavCollapsed, appContentWidth, appContentLayoutNav, horizontalNavType, isLessThanOverlayNavBreakpoint, isAppRtl, switchToVerticalNavOnLtOverlayNavBreakpoint } = useLayouts()
+  const { navbarType, isNavbarBlurEnabled, footerType, isVerticalNavCollapsed, appContentWidth, appContentLayoutNav, horizontalNavType, isLessThanOverlayNavBreakpoint, switchToVerticalNavOnLtOverlayNavBreakpoint } = useLayouts()
 
-  // const syncRtlWithRtlLang = (rtlLangs: string[], rtlDefaultLocale: string, ltrDefaultLocale: string) => {
-  // const { locale } = useI18n({ useScope: 'global' })
-  // watch(isAppRtl, val => {
-  //   if (val)
-  //     locale.value = rtlDefaultLocale
-  //   else locale.value = ltrDefaultLocale
-  // })
-  // watch(locale, val => {
-  //   if (rtlLangs.includes(val))
-  //     isAppRtl.value = true
-  //   else isAppRtl.value = false
-  // })
-  // watch(
-  //   [isAppRtl, locale],
-  //   ([valIsAppRTL, valLocale], [oldValIsAppRtl, oldValLocale]) => {
-  //     const isRtlUpdated = valIsAppRTL !== oldValIsAppRtl
-  //     if (isRtlUpdated) {
-  //       if (valIsAppRTL)
-  //         locale.value = rtlDefaultLocale
-  //       else locale.value = ltrDefaultLocale
-  //     }
-  //     else {
-  //       if (rtlLangs.includes(valLocale))
-  //         isAppRtl.value = true
-  //       else isAppRtl.value = false
-  //     }
-  //   },
-  // )
-  // }
   return {
     theme,
     isVerticalNavSemiDark,
@@ -126,7 +97,6 @@ export const useThemeConfig = () => {
     appContentLayoutNav,
     horizontalNavType,
     isLessThanOverlayNavBreakpoint,
-    isAppRtl,
     switchToVerticalNavOnLtOverlayNavBreakpoint,
 
     // syncRtlWithRtlLang,

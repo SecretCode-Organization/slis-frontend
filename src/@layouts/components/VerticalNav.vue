@@ -45,7 +45,6 @@ const {
   isVerticalNavCollapsed: isCollapsed,
   isLessThanOverlayNavBreakpoint,
   isVerticalNavMini,
-  isAppRtl,
 } = useLayouts()
 
 const hideTitleAndIcon = isVerticalNavMini(windowWidth, isHovered)
@@ -55,7 +54,7 @@ const resolveNavItemComponent = item => {
     return VerticalNavSectionTitle
   if ('children' in item)
     return VerticalNavGroup
-  
+
   return VerticalNavLink
 }
 
@@ -141,7 +140,6 @@ const handleNavScroll = evt => {
       :update-is-vertical-nav-scrolled="updateIsVerticalNavScrolled"
     >
       <PerfectScrollbar
-        :key="isAppRtl"
         tag="ul"
         class="nav-items"
         :options="{ wheelPropagation: false }"

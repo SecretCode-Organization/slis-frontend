@@ -23,9 +23,6 @@ export const blankEvent = {
   },
 }
 export const useCalendar = (event, isEventHandlerSidebarActive, isLeftSidebarOpen) => {
-  // 👉 themeConfig
-  const { isAppRtl } = useThemeConfig()
-
   // 👉 Store
   const store = useCalendarStore()
 
@@ -46,7 +43,7 @@ export const useCalendar = (event, isEventHandlerSidebarActive, isLeftSidebarOpe
   // ℹ️ Extract event data from event API
   const extractEventDataFromEventApi = eventApi => {
     const { id, title, start, end, url, extendedProps: { calendar, guests, location, description }, allDay } = eventApi
-    
+
     return {
       id,
       title,
@@ -94,7 +91,7 @@ export const useCalendar = (event, isEventHandlerSidebarActive, isLeftSidebarOpe
     const existingEvent = calendarApi.value?.getEventById(updatedEventData.id)
     if (!existingEvent) {
       console.warn('Can\'t found event in calendar to update')
-      
+
       return
     }
 
@@ -210,7 +207,7 @@ export const useCalendar = (event, isEventHandlerSidebarActive, isLeftSidebarOpe
     navLinks: true,
     eventClassNames({ event: calendarEvent }) {
       const colorName = calendarsColor[calendarEvent._def.extendedProps.calendar]
-      
+
       return [
         // Background Color
         `bg-light-${colorName} text-${colorName}`,
@@ -261,10 +258,7 @@ export const useCalendar = (event, isEventHandlerSidebarActive, isLeftSidebarOpe
   onMounted(() => {
     calendarApi.value = refCalendar.value.getApi()
   })
-  watch(isAppRtl, val => {
-    calendarApi.value?.setOption('direction', val ? 'rtl' : 'ltr')
-  }, { immediate: true })
-  
+
   return {
     refCalendar,
     calendarOptions,
