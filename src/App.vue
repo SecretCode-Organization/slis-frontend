@@ -3,11 +3,7 @@ import { useTheme } from 'vuetify'
 import { useThemeConfig } from '@core/composable/useThemeConfig'
 import { hexToRgb } from '@layouts/utils'
 
-const {
-  syncInitialLoaderTheme,
-  syncVuetifyThemeWithTheme: syncConfigThemeWithVuetifyTheme,
-  isAppRtl,
-} = useThemeConfig()
+const { syncInitialLoaderTheme, syncVuetifyThemeWithTheme: syncConfigThemeWithVuetifyTheme } = useThemeConfig()
 
 const { global } = useTheme()
 
@@ -17,10 +13,8 @@ syncConfigThemeWithVuetifyTheme()
 </script>
 
 <template>
-  <VLocaleProvider :rtl="isAppRtl">
-    <!-- ℹ️ This is required to set the background color of active nav link based on currently active global theme's primary -->
-    <VApp :style="`--v-global-theme-primary: ${hexToRgb(global.current.value.colors.primary)}`">
-      <RouterView />
-    </VApp>
-  </VLocaleProvider>
+  <!-- ℹ️ This is required to set the background color of active nav link based on currently active global theme's primary -->
+  <VApp :style="`--v-global-theme-primary: ${hexToRgb(global.current.value.colors.primary)}`">
+    <RouterView />
+  </VApp>
 </template>
