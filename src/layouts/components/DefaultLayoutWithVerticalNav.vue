@@ -3,9 +3,6 @@ import navItems from '@/navigation/vertical'
 import { useThemeConfig } from '@core/composable/useThemeConfig'
 
 // Components
-import Footer from '@/layouts/components/Footer.vue'
-import NavBarI18n from '@/layouts/components/NavBarI18n.vue'
-import NavBarNotifications from '@/layouts/components/NavBarNotifications.vue'
 import NavbarShortcuts from '@/layouts/components/NavbarShortcuts.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import NavSearchBar from '@/layouts/components/NavSearchBar.vue'
@@ -19,9 +16,7 @@ const { width: windowWidth } = useWindowSize()
 </script>
 
 <template>
-  <VerticalNavLayout
-    :nav-items="navItems"
-  >
+  <VerticalNavLayout :nav-items="navItems">
     <!-- 👉 navbar -->
     <template #navbar="{ toggleVerticalOverlayNavActive }">
       <div class="d-flex h-100 align-center">
@@ -34,40 +29,32 @@ const { width: windowWidth } = useWindowSize()
           size="small"
           @click="toggleVerticalOverlayNavActive(true)"
         >
-          <VIcon
-            icon="mdi-menu"
-            size="24"
-          />
+          <VIcon icon="mdi-menu" size="24" />
         </VBtn>
 
         <NavSearchBar class="ms-lg-n3" />
 
         <VSpacer />
 
-        <NavBarI18n />
         <NavbarThemeSwitcher />
         <NavbarShortcuts />
-        <NavBarNotifications class="me-2" />
         <UserProfile />
       </div>
     </template>
 
     <!-- 👉 Pages -->
     <RouterView v-slot="{ Component }">
-      <Transition
-        :name="appRouteTransition"
-        mode="out-in"
-      >
+      <Transition :name="appRouteTransition" mode="out-in">
         <Component :is="Component" />
       </Transition>
     </RouterView>
 
     <!-- 👉 Footer -->
-    <template #footer>
-      <Footer />
-    </template>
+    <!--    <template #footer> -->
+    <!--      <Footer /> -->
+    <!--    </template> -->
 
     <!-- 👉 Customizer -->
-    <TheCustomizer />
+    <!--    <TheCustomizer /> -->
   </VerticalNavLayout>
 </template>
