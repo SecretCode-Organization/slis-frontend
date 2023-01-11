@@ -26,6 +26,7 @@ const resolveNavItemComponent = (item) => {
 
 <template>
   <ul class="nav-items">
+    <!-- HorizontalNav 영역 -->
     <RouterLink to="/" class="d-flex align-center gap-x-3">
       <VNodeRenderer :nodes="themeConfig.app.logo" />
 

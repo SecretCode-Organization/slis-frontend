@@ -7,14 +7,12 @@ const ability = useAppAbility()
 const userData = JSON.parse(localStorage.getItem('userData') || 'null')
 
 const logout = () => {
-
   // Remove "userData" from localStorage
   localStorage.removeItem('userData')
 
   // Remove "accessToken" from localStorage
   localStorage.removeItem('accessToken')
   router.push('/login').then(() => {
-
     // Remove "userAbilities" from localStorage
     localStorage.removeItem('userAbilities')
 
@@ -35,46 +33,21 @@ const avatarBadgeProps = {
 
 <template>
   <VBadge v-bind="avatarBadgeProps">
-    <VAvatar
-      class="cursor-pointer"
-      color="primary"
-      variant="tonal"
-    >
-      <VImg
-        v-if="userData && userData.avatar"
-        :src="userData.avatar"
-      />
-      <VIcon
-        v-else
-        icon="mdi-account-outline"
-      />
+    <VAvatar class="cursor-pointer" color="primary" variant="tonal">
+      <VImg v-if="userData && userData.avatar" :src="userData.avatar" />
+      <VIcon v-else icon="mdi-account-outline" />
 
       <!-- SECTION Menu -->
-      <VMenu
-        activator="parent"
-        width="230"
-        location="bottom end"
-        offset="14px"
-      >
+      <VMenu activator="parent" width="230" location="bottom end" offset="14px">
         <VList>
           <!-- 👉 User Avatar & Name -->
           <VListItem>
             <template #prepend>
               <VListItemAction start>
                 <VBadge v-bind="avatarBadgeProps">
-                  <VAvatar
-                    color="primary"
-                    size="40"
-                    variant="tonal"
-                  >
-                    <VImg
-                      v-if="userData && userData.avatar"
-                      :src="userData.avatar"
-                    />
-                    <VIcon
-                      v-else
-                      icon="mdi-account-outline"
-                    />
+                  <VAvatar color="primary" size="40" variant="tonal">
+                    <VImg v-if="userData && userData.avatar" :src="userData.avatar" />
+                    <VIcon v-else icon="mdi-account-outline" />
                   </VAvatar>
                 </VBadge>
               </VListItemAction>
@@ -93,11 +66,7 @@ const avatarBadgeProps = {
           <!-- 👉 Profile -->
           <VListItem :to="{ name: 'apps-user-view-id', params: { id: 21 } }">
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="mdi-account-outline"
-                size="22"
-              />
+              <VIcon class="me-2" icon="mdi-account-outline" size="22" />
             </template>
 
             <VListItemTitle>Profile</VListItemTitle>
@@ -106,11 +75,7 @@ const avatarBadgeProps = {
           <!-- 👉 Settings -->
           <VListItem :to="{ name: 'pages-account-settings-tab', params: { tab: 'account' } }">
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="mdi-cog-outline"
-                size="22"
-              />
+              <VIcon class="me-2" icon="mdi-cog-outline" size="22" />
             </template>
 
             <VListItemTitle>Settings</VListItemTitle>
@@ -119,11 +84,7 @@ const avatarBadgeProps = {
           <!-- 👉 Pricing -->
           <VListItem :to="{ name: 'pages-pricing' }">
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="mdi-currency-usd"
-                size="22"
-              />
+              <VIcon class="me-2" icon="mdi-currency-usd" size="22" />
             </template>
 
             <VListItemTitle>Pricing</VListItemTitle>
@@ -132,11 +93,7 @@ const avatarBadgeProps = {
           <!-- 👉 FAQ -->
           <VListItem :to="{ name: 'pages-faq' }">
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="mdi-help-circle-outline"
-                size="22"
-              />
+              <VIcon class="me-2" icon="mdi-help-circle-outline" size="22" />
             </template>
 
             <VListItemTitle>FAQ</VListItemTitle>
@@ -146,16 +103,9 @@ const avatarBadgeProps = {
           <VDivider class="my-2" />
 
           <!-- 👉 Logout -->
-          <VListItem
-            link
-            @click="logout"
-          >
+          <VListItem link @click="logout">
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="mdi-logout-variant"
-                size="22"
-              />
+              <VIcon class="me-2" icon="mdi-logout-variant" size="22" />
             </template>
 
             <VListItemTitle>Logout</VListItemTitle>
@@ -164,5 +114,7 @@ const avatarBadgeProps = {
       </VMenu>
       <!-- !SECTION -->
     </VAvatar>
+    {{ userData.deptName }}
+    {{ userData.username }}
   </VBadge>
 </template>
