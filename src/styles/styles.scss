@@ -1,7 +1,12 @@
 // Write your overrides
 @font-face {
-  font-family: 'HyundaiSansTextRegular';
-  src: url('@/assets/fonts/HyundaiSansTextRegular.woff');
+  font-family: 'HyundaiSans';
+  src: url('@/assets/fonts/HyundaiSans.ttf');
+}
+
+@font-face {
+  font-family: 'HyundaiHarmony';
+  src: url('@/assets/fonts/Hyundai_Harmony+L.ttf');
 }
 
 
