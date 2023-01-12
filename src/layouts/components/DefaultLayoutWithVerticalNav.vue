@@ -1,5 +1,12 @@
 <script setup>
-import navItems from '@/navigation/vertical'
+import axios from '@axios'
+
+const navItems = ref([])
+
+axios.get('nav-items').then(({ data }) => {
+  navItems.value = data
+})
+
 import { useThemeConfig } from '@core/composable/useThemeConfig'
 
 // Components
@@ -55,6 +62,6 @@ const { width: windowWidth } = useWindowSize()
     <!--    </template> -->
 
     <!-- 👉 Customizer -->
-    <!--    <TheCustomizer /> -->
+    <TheCustomizer />
   </VerticalNavLayout>
 </template>

@@ -114,7 +114,5 @@ const avatarBadgeProps = {
       </VMenu>
       <!-- !SECTION -->
     </VAvatar>
-    {{ userData.deptName }}
-    {{ userData.username }}
   </VBadge>
 </template>

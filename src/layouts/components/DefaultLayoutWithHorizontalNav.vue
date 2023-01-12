@@ -1,5 +1,12 @@
 <script setup>
-import navItems from '@/navigation/horizontal'
+import axios from '@axios'
+
+const navItems = ref([])
+
+axios.get('nav-items').then(({ data }) => {
+  navItems.value = data
+})
+
 import { useThemeConfig } from '@core/composable/useThemeConfig'
 
 // Components
@@ -16,7 +23,6 @@ const { appRouteTransition } = useThemeConfig()
         <Component :is="Component" :key="route.path" />
       </Transition>
     </RouterView>
-
     <!-- 👉 footer -->
     <!--    <template #footer> -->
     <!--      <Footer /> -->
