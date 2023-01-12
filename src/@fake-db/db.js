@@ -61,7 +61,7 @@ const navData = [
 ]
 
 mock.onGet('/nav-items').reply(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
+  await new Promise((resolve) => setTimeout(resolve, 500))
 
   return [200, navData]
 })
