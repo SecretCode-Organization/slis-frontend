@@ -26,31 +26,21 @@ export default defineConfig({
       dirs: ['./src/pages'],
 
       // ℹ️ We need three routes using single routes so we will ignore generating route for this SFC file
-      onRoutesGenerated: routes => [
-        // Email filter
-        {
-          path: '/apps/email/:filter',
-          name: 'apps-email-filter',
-          component: '/src/pages/apps/email/index.vue',
-          meta: {
-            navActiveLink: 'apps-email',
-            layoutWrapperClasses: 'layout-content-height-fixed',
-          },
-        },
+      onRoutesGenerated: (routes) => [...routes],
 
-        // Email label
-        {
-          path: '/apps/email/label/:label',
-          name: 'apps-email-label',
-          component: '/src/pages/apps/email/index.vue',
-          meta: {
-            // contentClass: 'email-application',
-            navActiveLink: 'apps-email',
-            layoutWrapperClasses: 'layout-content-height-fixed',
-          },
-        },
-        ...routes,
-      ],
+      // 라우터를 반환할때 meta 태그안에 breadcrumbs 을 정의해서 담도록 수정
+      extendRoute(route) {
+        if (route.path === '/' || route.path === '/login') {
+          // Index is unauthenticated.
+          return route
+        }
+
+        // Augment the route with meta that indicates that the route requires authentication.
+        return {
+          ...route,
+          meta: { auth: true },
+        }
+      },
     }),
     Layouts({
       layoutsDirs: './src/layouts/',
@@ -70,9 +60,7 @@ export default defineConfig({
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
-      include: [
-        fileURLToPath(new URL('./src/plugins/i18n/locales/**', import.meta.url)),
-      ],
+      include: [fileURLToPath(new URL('./src/plugins/i18n/locales/**', import.meta.url))],
     }),
     DefineOptions(),
   ],
@@ -88,7 +76,7 @@ export default defineConfig({
       '@configured-variables': fileURLToPath(new URL('./src/styles/variables/_template.scss', import.meta.url)),
       '@axios': fileURLToPath(new URL('./src/plugins/axios', import.meta.url)),
       '@validators': fileURLToPath(new URL('./src/@core/utils/validators', import.meta.url)),
-      'apexcharts': fileURLToPath(new URL('node_modules/apexcharts-clevision', import.meta.url)),
+      apexcharts: fileURLToPath(new URL('node_modules/apexcharts-clevision', import.meta.url)),
     },
   },
   build: {
@@ -96,8 +84,6 @@ export default defineConfig({
   },
   optimizeDeps: {
     exclude: ['vuetify'],
-    entries: [
-      './src/**/*.vue',
-    ],
+    entries: ['./src/**/*.vue'],
   },
 })

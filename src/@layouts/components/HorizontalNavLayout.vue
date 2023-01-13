@@ -1,7 +1,6 @@
 <script setup>
 import { HorizontalNav } from '@layouts/components'
 
-// import { useLayouts } from '@layouts'
 import { useLayouts } from '@layouts/composable/useLayouts'
 
 const props = defineProps({
@@ -24,6 +23,24 @@ router.afterEach(() => {
 })
 
 const { _layoutClasses: layoutClasses, isNavbarBlurEnabled } = useLayouts()
+
+const items = [
+  {
+    text: 'Home',
+    disabled: false,
+    href: '/',
+  },
+  {
+    text: 'Link 1',
+    disabled: true,
+    href: 'breadcrumbs_link_1',
+  },
+  {
+    text: 'Link 2',
+    disabled: false,
+    href: 'breadcrumbs_link_2',
+  },
+]
 </script>
 
 <template>
@@ -37,15 +54,23 @@ const { _layoutClasses: layoutClasses, isNavbarBlurEnabled } = useLayouts()
         </div>
       </div>
     </div>
-
     <main class="layout-page-content">
+      <VCard elevation="2" class="mb-5">
+        <!-- breadcrumbs add -->
+        <VBreadcrumbs :items="items">
+          <template #item="{ item }">
+            <VBreadcrumbsItem :href="item.href" :disabled="item.disabled">
+              {{ item.text.toUpperCase() }}
+            </VBreadcrumbsItem>
+          </template>
+        </VBreadcrumbs>
+      </VCard>
+
       <template v-if="$slots['content-loading']">
         <template v-if="shallShowPageLoading">
           <slot name="content-loading" />
         </template>
-        <template v-else>
-          <slot />
-        </template>
+        <template v-else> </template>
       </template>
       <template v-else>
         <slot />

@@ -45,7 +45,6 @@ const login = () => {
       password: password.value,
     })
     .then((r) => {
-      debugger
       const { accessToken, userData, userAbilities } = r.data
 
       localStorage.setItem('userAbilities', JSON.stringify(userAbilities))

@@ -27,20 +27,17 @@ const resolveNavItemComponent = (item) => {
 <template>
   <ul class="nav-items">
     <!-- HorizontalNav 영역 -->
-    <RouterLink to="/" class="d-flex align-center gap-x-3">
+    <RouterLink to="/" class="d-flex align-center gap-x-3 mr-10">
       <VNodeRenderer :nodes="themeConfig.app.logo" />
-
       <h1 class="font-weight-medium leading-normal text-xl text-uppercase">
         {{ themeConfig.app.title }}
       </h1>
     </RouterLink>
 
-    <VSpacer />
     <Component :is="resolveNavItemComponent(item)" v-for="(item, index) in navItems" :key="index" :item="item" />
 
     <VSpacer />
     <NavSearchBar trigger-btn-class="ms-lg-n3" />
-
     <NavbarThemeSwitcher />
     <NavbarShortcuts />
     <UserProfile />
