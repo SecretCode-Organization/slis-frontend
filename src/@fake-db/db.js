@@ -23,7 +23,7 @@ const navData = [
         title: '정문관리',
         icon: { icon: 'mdi-door-sliding' },
         children: [
-          { title: '정문정체관리', to: 'forms-combobox' },
+          { title: '정문정체관리', to: 'tuiGrid' },
           { title: '정문출입제한관리', to: 'forms-date-time-picker' },
         ],
       },

@@ -169,16 +169,16 @@ const items = [
 .layout-horizontal-nav {
   z-index: variables.$layout-horizontal-nav-z-index;
 
-  // .horizontal-nav-sticky & {
-  //   width: 100%;
-  //   will-change: transform;
-  //   position: sticky;
-  //   top: 0;
-  // }
+  .horizontal-nav-sticky & {
+    width: 100%;
+    will-change: transform;
+    position: sticky;
+    top: 0;
+  }
 
-  // .horizontal-nav-hidden & {
-  //   display: none;
-  // }
+  .horizontal-nav-hidden & {
+    display: none;
+  }
 
   .horizontal-nav-content-container {
     @include mixins.boxed-content(true);
