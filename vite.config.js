@@ -1,5 +1,4 @@
 import { fileURLToPath } from 'url'
-import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -38,7 +37,9 @@ export default defineConfig({
         // Augment the route with meta that indicates that the route requires authentication.
         return {
           ...route,
-          meta: { auth: true },
+          meta: {
+            auth: true,
+          },
         }
       },
     }),
@@ -54,13 +55,8 @@ export default defineConfig({
         enabled: true,
         filepath: './.eslintrc-auto-import.json',
       },
-      imports: ['vue', 'vue-router', '@vueuse/core', '@vueuse/math', 'vue-i18n', 'pinia'],
+      imports: ['vue', 'vue-router', '@vueuse/core', '@vueuse/math', 'pinia'],
       vueTemplate: true,
-    }),
-    VueI18n({
-      runtimeOnly: true,
-      compositionOnly: true,
-      include: [fileURLToPath(new URL('./src/plugins/i18n/locales/**', import.meta.url))],
     }),
     DefineOptions(),
   ],

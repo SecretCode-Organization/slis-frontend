@@ -46,7 +46,6 @@ const items = [
 <template>
   <div class="layout-wrapper" :class="layoutClasses(windowWidth, windowScrollY)">
     <div class="layout-navbar-and-nav-container" :class="isNavbarBlurEnabled && 'header-blur'">
-      <!-- 👉   -->
       <!-- 👉 Navigation -->
       <div class="layout-horizontal-nav">
         <div class="horizontal-nav-content-container">
