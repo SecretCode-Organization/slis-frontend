@@ -49,6 +49,6 @@ const roles = [
     </VCard>
 
     <!-- 그리드 영역 -->
-    <VCard> </VCard>
+    <VCard>그리드 영역</VCard>
   </section>
 </template>

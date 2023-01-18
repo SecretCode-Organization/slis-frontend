@@ -180,7 +180,6 @@
     "useFullscreen": true,
     "useGamepad": true,
     "useGeolocation": true,
-    "useI18n": true,
     "useIdle": true,
     "useImage": true,
     "useInfiniteScroll": true,
