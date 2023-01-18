@@ -1,18 +1,4 @@
 <script setup>
-import { AgGridVue } from 'ag-grid-vue3'
-
-const columnDefs = [
-  { field: 'make', sortable: true },
-  { field: 'model', sortable: true },
-  { field: 'price', sortable: true },
-]
-
-const rowData = [
-  { make: 'Toyota', model: 'Celica', price: 35000 },
-  { make: 'Ford', model: 'Mondeo', price: 32000 },
-  { make: 'Porsche', model: 'Boxter', price: 72000 },
-]
-
 // Form 변수 정의
 const selectedFactory = ref()
 
@@ -63,14 +49,6 @@ const roles = [
     </VCard>
 
     <!-- 그리드 영역 -->
-    <VCard>
-      <AgGridVue
-        style="width: 100%; height: 500px"
-        class="ag-theme-alpine"
-        :column-defs="columnDefs"
-        :row-data="rowData"
-      >
-      </AgGridVue>
-    </VCard>
+    <VCard> </VCard>
   </section>
 </template>

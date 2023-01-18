@@ -32,14 +32,12 @@ export default defineConfig({
         if (route.path === '/' || route.path === '/login') {
           // Index is unauthenticated.
           return route
-        }
-
-        // Augment the route with meta that indicates that the route requires authentication.
-        return {
-          ...route,
-          meta: {
-            auth: true,
-          },
+        } else {
+          // Augment the route with meta that indicates that the route requires authentication.
+          return {
+            ...route,
+            breadcrumbs: { 1: true, 2: false },
+          }
         }
       },
     }),

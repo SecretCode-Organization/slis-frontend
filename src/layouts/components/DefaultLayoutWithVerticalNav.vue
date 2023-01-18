@@ -20,6 +20,24 @@ import { VerticalNavLayout } from '@layouts'
 
 const { appRouteTransition, isLessThanOverlayNavBreakpoint } = useThemeConfig()
 const { width: windowWidth } = useWindowSize()
+
+const items = [
+  {
+    text: 'Home',
+    disabled: false,
+    href: '/',
+  },
+  {
+    text: 'Link 1',
+    disabled: true,
+    href: 'breadcrumbs_link_1',
+  },
+  {
+    text: 'Link 2',
+    disabled: false,
+    href: 'breadcrumbs_link_2',
+  },
+]
 </script>
 
 <template>
@@ -48,6 +66,17 @@ const { width: windowWidth } = useWindowSize()
         <UserProfile />
       </div>
     </template>
+
+    <VCard elevation="2" class="mb-5">
+      <!-- breadcrumbs add -->
+      <VBreadcrumbs :items="items">
+        <template #item="{ item }">
+          <VBreadcrumbsItem :href="item.href" :disabled="item.disabled">
+            {{ item.text.toUpperCase() }}
+          </VBreadcrumbsItem>
+        </template>
+      </VBreadcrumbs>
+    </VCard>
 
     <!-- 👉 Pages -->
     <RouterView v-slot="{ Component }">
