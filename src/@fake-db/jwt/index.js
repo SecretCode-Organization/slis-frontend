@@ -54,7 +54,7 @@ const database = [
 mock.onPost('/auth/login').reply((request) => {
   const { userid, password } = JSON.parse(request.data)
   let errors = {
-    email: ['Something went wrong'],
+    userid: ['아이디 / 패스워드를 확인해 주세요.'],
   }
   const user = database.find((u) => u.userid === userid && u.password === password)
   if (user) {
@@ -77,7 +77,7 @@ mock.onPost('/auth/login').reply((request) => {
       //   const accessToken = jwt.sign({ id: user.id }, jwtSecret)
       return [200, response]
     } catch (e) {
-      errors = { email: [e] }
+      errors = { userid: [e] }
     }
   } else {
     errors = {

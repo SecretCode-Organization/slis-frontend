@@ -54,16 +54,18 @@ const items = [
       </div>
     </div>
     <main class="layout-page-content">
-      <VCard elevation="2" class="mb-5">
+      <template v-if="router.currentRoute.value.fullPath === '/ww001'">
         <!-- breadcrumbs add -->
-        <VBreadcrumbs :items="items">
-          <template #item="{ item }">
-            <VBreadcrumbsItem :href="item.href" :disabled="item.disabled">
-              {{ item.text.toUpperCase() }}
-            </VBreadcrumbsItem>
-          </template>
-        </VBreadcrumbs>
-      </VCard>
+        <VCard elevation="2" class="mb-5">
+          <VBreadcrumbs :items="items">
+            <template #item="{ item }">
+              <VBreadcrumbsItem :href="item.href" :disabled="item.disabled">
+                {{ item.text.toUpperCase() }}
+              </VBreadcrumbsItem>
+            </template>
+          </VBreadcrumbs>
+        </VCard>
+      </template>
 
       <template v-if="$slots['content-loading']">
         <template v-if="shallShowPageLoading">

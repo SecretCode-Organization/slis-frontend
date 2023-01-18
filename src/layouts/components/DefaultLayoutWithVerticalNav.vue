@@ -3,7 +3,7 @@ import axios from '@axios'
 
 const navItems = ref([])
 
-axios.get('nav-items').then(({ data }) => {
+axios.get('/nav-items').then(({ data }) => {
   navItems.value = data
 })
 

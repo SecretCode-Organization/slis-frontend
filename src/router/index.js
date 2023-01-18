@@ -19,10 +19,6 @@ const router = createRouter({
         return { name: 'login', query: to.query }
       },
     },
-    {
-      path: '/dashboards/crm',
-      redirect: () => ({ name: 'dashboards-crm', params: { tab: 'apps' } }),
-    },
     ...setupLayouts(routes),
   ],
 })
@@ -38,7 +34,5 @@ router.beforeEach((to) => {
     else return { name: 'login', query: { to: to.name !== 'index' ? to.fullPath : undefined } }
   }
 })
-
-console.log(' router :', router)
 
 export default router

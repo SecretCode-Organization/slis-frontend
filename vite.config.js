@@ -28,7 +28,7 @@ export default defineConfig({
       onRoutesGenerated: (routes) => [...routes],
 
       // 라우터를 반환할때 meta 태그안에 breadcrumbs 을 정의해서 담도록 수정
-      extendRoute(route) {
+      extendRoute(route, parent) {
         if (route.path === '/' || route.path === '/login') {
           // Index is unauthenticated.
           return route
@@ -36,7 +36,6 @@ export default defineConfig({
           // Augment the route with meta that indicates that the route requires authentication.
           return {
             ...route,
-            breadcrumbs: { 1: true, 2: false },
           }
         }
       },
