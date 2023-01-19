@@ -47,30 +47,38 @@ const roles = [
 
 <template>
   <section>
+
     <VCard>
-      <VCardText class="d-flex flex-wrap gap-4 pa-0">
-        <VRow class="pa-2">
-          <VCol cols="12" sm="12" md="8" class="d-flex flex-wrap justify-start">
-            <VCol cols="12" sm="4" md="2" class="">
-              <VSelect v-model="selectedFactory" label="공장" :items="roles" clearable clear-icon="mdi-close" />
-            </VCol>
-            <VCol cols="12" sm="4" md="2" class="">
-              <VSelect v-model="selectedFactory" label="공장" :items="roles" clearable clear-icon="mdi-close" />
-            </VCol>
-            <VCol cols="12" sm="4" md="2" class="">
-              <VSelect v-model="selectedFactory" label="공장" :items="roles" clearable clear-icon="mdi-close" />
-            </VCol>
+
+      <VCardText class="pb-2 pt-2 pl-3 pr-3">
+        <VRow>
+          <VCol cols="10">
+            <VRow>
+              <VCol cols="12" lg="2" >
+                <VSelect v-model="selectedFactory" label="공장" :items="roles" clearable clear-icon="mdi-close"
+                /></VCol>
+              <VCol cols="12" lg="2" >
+                <VSelect v-model="selectedFactory" label="라인" :items="roles" clearable clear-icon="mdi-close"
+                /></VCol>
+              <VCol cols="12" lg="2"  >
+                <VSelect v-model="selectedFactory" label="모듈" :items="roles" clearable clear-icon="mdi-close"
+                /></VCol>
+              <VCol cols="12" lg="2"  >
+                <VSelect v-model="selectedFactory" label="협력사" :items="roles" clearable clear-icon="mdi-close"
+                /></VCol>
+            </VRow>
           </VCol>
-          <VCol cols="12" md="4" class="d-flex flex-nowrap justify-end">
-            <VCol cols="12" sm="12" md="4" class="d-flex flex-nowrap justify-end">
-              <VBtn class="" variant="tonal" color="secondary" prepend-icon="mdi-tray-arrow-up"> 엑셀 </VBtn>
-              <VSpacer />
-              <VBtn class="ml-3" @click="fetchList"> 조회 </VBtn>
-            </VCol>
+          <VCol cols="2">
+            <VRow>
+              <VCol cols="12" lg="12"  class="d-flex flex-wrap justify-end">
+                <VBtn class="ml-3" variant="tonal" color="secondary" prepend-icon="mdi-tray-arrow-up"> 엑셀 </VBtn>
+                <VBtn class="ml-3" @click="fetchList"> 조회 </VBtn>
+              </VCol>
+            </VRow>
+
           </VCol>
         </VRow>
       </VCardText>
-
       <!-- 그리드 영역 -->
       <VTable class="ma-3 mt-0">
         <!-- 👉 table head -->
@@ -149,30 +157,4 @@ const roles = [
 </template>
 
 <style lang="scss" scope>
-// 폼 scss
-.v-input--density-comfortable {
-  --v-input-control-height: 36px;
-  --v-input-padding-top: 6px;
-}
-.v-input--density-comfortable .v-field--variant-outlined {
-  --v-field-padding-bottom: 6px;
-}
-// 테이블 scss
-.v-locale--is-ltr .v-table > .v-table__wrapper > table > thead > tr > th {
-  text-align: center;
-  border: 0.5px solid #c5dbec;
-  background-color: rgba(86, 64, 76, 0.9);
-  color: white;
-  block-size: 25px;
-}
-.v-table--density-default > .v-table__wrapper > table > tbody > tr > td {
-  border: 0.5px solid #c5dbec;
-  text-align: center;
-  block-size: 25px;
-}
-.v-table--density-default > .v-table__wrapper > table > tfoot > tr > td {
-  border: 0.5px solid #c5dbec;
-  text-align: center;
-  block-size: 25px;
-}
 </style>

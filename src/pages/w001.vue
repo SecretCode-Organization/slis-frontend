@@ -29,21 +29,28 @@ const roles = [
 
 <template>
   <section>
-    <VCard title="검색조건" class="mb-6">
-      <VCardText>
+    <VCard class="mb-3">
+      <VCardText class="pb-2 pt-2">
         <VRow>
-          <VCol cols="12" sm="4" class="bg-amber">
-            <VSelect v-model="selectedFactory" label="공장" :items="roles" clearable clear-icon="mdi-close"
-          /></VCol>
-          <VCol cols="12" sm="3" class="bg-amber">
-            <VSelect v-model="selectedFactory" label="라인" :items="roles" clearable clear-icon="mdi-close"
-          /></VCol>
-          <VCol cols="12" sm="3" class="bg-amber">
-            <VSelect v-model="selectedFactory" label="모듈" :items="roles" clearable clear-icon="mdi-close"
-          /></VCol>
-          <VCol cols="12" sm="2" class="bg-amber">
-            <VSelect v-model="selectedFactory" label="협력사" :items="roles" clearable clear-icon="mdi-close"
-          /></VCol>
+          <VCol cols="10">
+            <VRow>
+            <VCol cols="12" lg="2" class="bg-amber">
+              <VSelect v-model="selectedFactory" label="공장" :items="roles" clearable clear-icon="mdi-close"
+              /></VCol>
+            <VCol cols="12" lg="2" class="bg-amber">
+              <VSelect v-model="selectedFactory" label="라인" :items="roles" clearable clear-icon="mdi-close"
+              /></VCol>
+            <VCol cols="12" lg="2"  class="bg-amber">
+              <VSelect v-model="selectedFactory" label="모듈" :items="roles" clearable clear-icon="mdi-close"
+              /></VCol>
+            <VCol cols="12" lg="2"  class="bg-amber">
+              <VSelect v-model="selectedFactory" label="협력사" :items="roles" clearable clear-icon="mdi-close"
+              /></VCol>
+            </VRow>
+          </VCol>
+          <VCol cols="2">
+            검색버튼
+          </VCol>
         </VRow>
       </VCardText>
     </VCard>

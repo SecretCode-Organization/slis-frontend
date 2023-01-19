@@ -13,7 +13,7 @@ export const { themeConfig, layoutConfig } = defineThemeConfig({
     titleName: 'SMART 물류관리시스템',
 
     // ❗ if you have SVG logo and want it to adapt according to theme color, you have to apply color as `color: rgb(var(--v-global-theme-primary))`
-    logo: h('div', { innerHTML: logo, style: 'line-height:0; color: rgb(var(--v-global-theme-primary))' }),
+    logo: h('div', { innerHTML: logo, style: 'line-height:0; color: rgb(var(--v-global-theme-info))' }),
     contentWidth: ContentWidth.Fluid,
     contentLayoutNav: AppContentLayoutNav.Horizontal,
     overlayNavFromBreakpoint: breakpointsVuetify.md + 16,

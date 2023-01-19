@@ -53,10 +53,10 @@ const items = [
         </div>
       </div>
     </div>
-    <main class="layout-page-content">
+    <main class="layout-page-content pt-2">
       <template v-if="router.currentRoute.value.fullPath !== '/w001'">
         <!-- breadcrumbs add -->
-        <VCard elevation="2" class="mb-3">
+        <VCard elevation="2" class="mb-1" height="2rem">
           <VBreadcrumbs :items="items">
             <template #item="{ item }">
               <VBreadcrumbsItem :href="item.href" :disabled="item.disabled">
