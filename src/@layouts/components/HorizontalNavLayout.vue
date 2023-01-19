@@ -54,9 +54,9 @@ const items = [
       </div>
     </div>
     <main class="layout-page-content">
-      <template v-if="router.currentRoute.value.fullPath === '/ww001'">
+      <template v-if="router.currentRoute.value.fullPath !== '/w001'">
         <!-- breadcrumbs add -->
-        <VCard elevation="2" class="mb-5">
+        <VCard elevation="2" class="mb-3">
           <VBreadcrumbs :items="items">
             <template #item="{ item }">
               <VBreadcrumbsItem :href="item.href" :disabled="item.disabled">
